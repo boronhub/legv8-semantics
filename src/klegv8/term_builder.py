@@ -35,6 +35,9 @@ def sort_instruction() -> KSort:
 def _reg_reg_imm_instr(reg_reg_imm_instr_name: KInner, reg1: KInner, reg2: KInner, imm: KInner) -> KInner:
     return KApply('RegRegImmInstr', reg_reg_imm_instr_name, reg1, reg2, imm)
 
+def _reg_reg_imm_brack_instr(reg_reg_imm_instr_name: KInner, reg1: KInner, reg2: KInner, imm: KInner) -> KInner:
+    return KApply('RegRegImmBracketInstr', reg_reg_imm_instr_name, reg1, reg2, imm)
+
 
 def _reg_imm_instr(reg_imm_instr_name: KInner, reg: KInner, imm: KInner) -> KInner:
     return KApply('RegImmInstr', reg_imm_instr_name, reg, imm)
@@ -66,6 +69,9 @@ def udiv_instr(rd: KInner, rn: KInner, rm: KInner) -> KInner:
 
 def addi_instr(rd: KInner, rn: KInner, imm: KInner) -> KInner:
     return _reg_reg_imm_instr(KApply('ADDI'), rd, rn, imm)
+
+def ldur_instr(rt: KInner, rn: KInner, imm: KInner) -> KInner:
+    return _reg_reg_imm_brack_instr(KApply('LDUR'), rt, rn, imm)
 
 def invalid_instr() -> KInner:
     return KApply('INVALID_INSTR')

@@ -1,5 +1,5 @@
 # `XLEN`-bit Word Datatype
-In this file, we define a `Word` datatype representing a sequence of `XLEN` bits, where `XLEN=32` for `RV32*` ISAs and `XLEN=64` for `RV64*` ISAs.
+In this file, we define a `Word` datatype representing a sequence of `XLEN` bits. Instructions are 32-bit but registers are 64 bit since ARMv8 is a 64-bit architecture.
 ```k
 module WORD
   imports BOOL
@@ -7,11 +7,12 @@ module WORD
   imports INT
 
   syntax Int ::= "XLEN" [macro]
-  rule XLEN => 32
+  rule XLEN => 64
 ```
 Throughout the semantics, we use K's arbitrary-precision, infinitely sign-extended, two's-complement integer type `Int` to store arbitrary bit sequences. A `Word` consists of a single `Int`, with the `XLEN` least-signficant bits storing the desired bit sequence and all other bits zeroed.
 ```k
   syntax Word ::= W(Int) [format(%3), symbol(W)]
+  syntax DoubleWord ::= DW(Int) [format(%3), symbol(DW)]
 ```
 A `Word` can be interpreted as an unsigned integer by directly returning the underlying `Int`,
 ```k

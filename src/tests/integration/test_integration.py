@@ -133,12 +133,11 @@ def _test_simple(tools: Tools, elf_file: Path, assert_file: Path, final_config_o
 def test_simple(asm_file: Path, save_final_config: bool, temp_dir: Path) -> None:
     elf_file = Path(temp_dir) / (asm_file.stem + '.elf')
     compile_cmd = [
-        'legv864-unknown-elf-gcc',
+        'clang',
         '-nostdlib',
         '-nostartfiles',
         '-static',
-        '-march=rv32e',
-        '-mabi=ilp32e',
+        '-march=arm64',
         '-mno-relax',
         '-mlittle-endian',
         '-Xassembler',

@@ -24,6 +24,7 @@ The various `InstructionFormat`s are defined below.
   syntax InstructionFormat ::=
       RType(opcode: RTypeOpCode, Rm: Register, shamt: Int, Rn: Register, Rd: Register)
     | IType(opcode: ITypeOpCode, ALUImm: Int, Rn: Register, Rd: Register)
+    | DType(opcode: DTypeOpCode, DTAddr: Int, op: Int, Rn: Register, Rt: Register)
     | UnrecognizedInstructionFormat(Int)
 ```
 We determine the correct format by decoding the op code from the 7 least-signficant bits,
@@ -31,6 +32,7 @@ We determine the correct format by decoding the op code from the 7 least-signfic
   syntax OpCode ::=
       RTypeOpCode
     | ITypeOpCode
+    | DTypeOpCode
     | UnrecognizedOpCode
 
   syntax RTypeOpCode ::=
@@ -48,6 +50,9 @@ We determine the correct format by decoding the op code from the 7 least-signfic
   syntax ITypeOpCode ::= 
       "ADDI"
     | "ANDI"
+
+  syntax DTypeOpCode ::=
+      "LDUR"
   
   syntax UnrecognizedOpCode ::=
       "UNRECOGNIZED"
@@ -57,6 +62,7 @@ We determine the correct format by decoding the op code from the 7 least-signfic
   rule decodeOpCode(I:Int ) => ADD requires  ((I >>Int 21) &Int 2047) ==Int 1112
   rule decodeOpCode(I:Int ) => DIV requires ((I >>Int 21) &Int 2047) ==Int 1238
   rule decodeOpCode(I:Int ) => ADDI requires ((I >>Int 22) &Int 1023) ==Int 580
+  rule decodeOpCode(I:Int ) => LDUR requires ((I >>Int 21) &Int 2047) ==Int 1986
   // rule decodeOpCode(I:Int ) => UDIV requires (I &Int 2047) ==Int 1238
   // rule decodeOpCode(I:Int ) => MUL requires (I &Int 2047) ==Int 1240
   // rule decodeOpCode(I:Int ) => ORR requires (I &Int 2047) ==Int 1360
@@ -80,6 +86,8 @@ then finally bit-fiddling to mask out the appropriate bits for each field.
     RType(OPCODE, (I >>Int 16) &Int 31, (I >>Int 10) &Int 63, (I >>Int 5) &Int 31, I &Int 31)
   rule decodeWithOp(OPCODE:ITypeOpCode, I) =>
     IType(OPCODE, (I >>Int 10) &Int 4095, (I >>Int 5) &Int 31, I &Int 31)
+  rule decodeWithOp(OPCODE:DTypeOpCode, I) =>
+    DType(OPCODE, (I >>Int 12) &Int 511, (I >>Int 10) &Int 3, (I >>Int 5) &Int 31, I &Int 31)
   rule decodeWithOp(_:UnrecognizedOpCode, I) =>
     UnrecognizedInstructionFormat(I)
 ```
@@ -99,7 +107,9 @@ Finally, we can disassemble the instruction by inspecting the fields for each fo
   rule disassemble(RType(LSR, RM, 0, RN, RD)) => LSR  RD , RN , RM
   rule disassemble(RType(LSL, RM, 0, RN, RD)) => LSL  RD , RN , RM
 
-  rule disassemble(IType(ADDI, IMM, RN, RD)) => ADDI  RD , RN , # infSignExtend(IMM, 12) 
+  rule disassemble(IType(ADDI, IMM, RN, RD)) => ADDI  RD , RN , # infSignExtend(IMM, 12)
+
+  rule disassemble(DType(LDUR, IMM, 0, RT, RN)) => LDUR  RT , [RN, # infSignExtend(IMM, 12)]  
 
   rule disassemble(_:InstructionFormat) => INVALID_INSTR [owise]
 endmodule

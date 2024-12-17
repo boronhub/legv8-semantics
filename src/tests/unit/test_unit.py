@@ -71,6 +71,11 @@ DISASS_TEST_DATA: Final[tuple[tuple[str, str, KInner], ...]] = (
         '10010001000000000011110000000000',
         term_builder.addi_instr(register(0), register(0), intToken(15)),
     ),
+    (
+        'LDUR x0, [x1, #15]',
+        '11111000010000001111000000000001',
+        term_builder.ldur_instr(register(0), register(1), intToken(15)),
+    ),
 )
 
 @pytest.mark.parametrize(

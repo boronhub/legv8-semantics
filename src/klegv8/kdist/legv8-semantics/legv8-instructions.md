@@ -18,6 +18,7 @@ module LEGV8-INSTRUCTIONS
   syntax Instruction ::=
       RegRegRegInstr
     | RegRegImmInstr
+    | RegRegImmBracketInstr
     | InvalidInstr
 
   syntax RegRegRegInstr ::= RegRegRegInstrName Register "," Register "," Register [symbol(RegRegRegInstr)]
@@ -37,6 +38,11 @@ module LEGV8-INSTRUCTIONS
   syntax RegRegImmInstr ::= RegRegImmInstrName Register "," Register "," "#" Int [symbol(RegRegImmInstr)]
   syntax RegRegImmInstrName ::=
       "ADDI"   [symbol(ADDI)]
+
+  syntax RegRegImmBracketInstr ::= RegRegImmBracketInstrName Register "," "[" Register ","  "#" Int "]" [symbol(RegRegImmBracketInstr)]
+  syntax RegRegImmBracketInstrName ::=
+      "LDUR"   [symbol(LDUR)]
+
   syntax InvalidInstr ::= "INVALID_INSTR" [symbol(INVALID_INSTR)]
 endmodule
 ```

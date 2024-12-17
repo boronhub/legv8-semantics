@@ -33,7 +33,7 @@ module LEGV8-CONFIGURATION
       <instrs> #EXECUTE ~> .K </instrs>
       <regs> .Map </regs> // Map{Register, Word}
       <pc> $PC:Word </pc>
-      // <flags> .Map </flags> // Map{Flag, Bool}
+      <flags> .Map </flags> // Map{Flag, Bool}
       <mem> $MEM:SparseBytes </mem>
     </legv8>
     <test>
@@ -87,7 +87,7 @@ The `ADDRESS(_)` condition indicates that we should halt if the `PC` reaches a p
 endmodule
 ```
 
-## Memory and Registers
+## Memory, Registers and Flags
 LEGv8 uses a circular, byte-adressable memory space containing `2^XLEN` bytes.
 ```k
 module LEGV8-MEMORY
@@ -202,6 +202,12 @@ I-Type Instructions
   rule <instrs> ADDI RD , RN , # IMM => .K ...</instrs>
        <regs> REGS => writeReg(REGS, RD, readReg(REGS, RN) +Word chop(IMM)) </regs>
 ```
+
+D-Type Instructions
+
+rule <instrs> LW RD , OFFSET ( RS1 ) => .K ...</instrs>
+       <regs> REGS => writeReg(REGS, RD, signExtend(loadBytes(MEM, readReg(REGS, RS1) +Word chop(OFFSET), 4), 32)) </regs>
+       <mem> MEM </mem>
 
 ```k
 endmodule
