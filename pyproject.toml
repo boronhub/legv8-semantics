@@ -3,7 +3,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
-name = "kriscv"
+name = "klegv8"
 version = "0.1.45"
 description = "K tooling for the RISC-V architecture"
 authors = [
@@ -11,10 +11,10 @@ authors = [
 ]
 
 [tool.poetry.scripts]
-kriscv = "kriscv.__main__:main"
+klegv8 = "klegv8.__main__:main"
 
 [tool.poetry.plugins.kdist]
-riscv-semantics = "kriscv.kdist.plugin"
+legv8-semantics = "klegv8.kdist.plugin"
 
 [tool.poetry.dependencies]
 python = "^3.10"

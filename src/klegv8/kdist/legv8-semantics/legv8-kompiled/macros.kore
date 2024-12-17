@@ -1,0 +1,7 @@
+// macros
+// rule `XLEN_WORD_Int`(.KList)=>#token("32","Int") requires #token("true","Bool") ensures #token("true","Bool") [UNIQUE_ID(1622ab24debeb5ad2e950516493ae2a02c9bef7dee47720184cf74124929f940), macro, org.kframework.attributes.Location(Location(10,8,10,18)), org.kframework.attributes.Source(Source(/home/boron/college/fa24/cs422/project/legv8-semantics/word.md)), org.kframework.definition.Production(syntax #RuleContent ::= #RuleBody [symbol(#ruleNoConditions)])]
+  axiom{R} \equals{SortInt{},R} (
+    LblXLEN'Unds'WORD'Unds'Int{}(),
+    \dv{SortInt{}}("32"))
+  [UNIQUE'Unds'ID{}("1622ab24debeb5ad2e950516493ae2a02c9bef7dee47720184cf74124929f940"), macro{}(), org'Stop'kframework'Stop'attributes'Stop'Location{}("Location(10,8,10,18)"), org'Stop'kframework'Stop'attributes'Stop'Source{}("Source(/home/boron/college/fa24/cs422/project/legv8-semantics/word.md)"), priority{}("50")]
+

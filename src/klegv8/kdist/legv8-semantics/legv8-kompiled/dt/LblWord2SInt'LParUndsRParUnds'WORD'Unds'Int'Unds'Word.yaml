@@ -1,0 +1,10 @@
+default: null
+specializations:
+- - LblW{}
+  - action:
+    - 538
+    - - - ['0', '1']
+        - INT.Int
+  - [INT.Int]
+sort: STRING.String
+occurrence: ['1']

@@ -1,0 +1,90 @@
+default: null
+specializations:
+- - Lbl'-LT-'generatedTop'-GT-'{}
+  - default: null
+    specializations:
+    - - Lbl'-LT-'legv8'-GT-'{}
+      - default: null
+        specializations:
+        - - Lbl'-LT-'regs'-GT-'{}
+          - default: null
+            specializations:
+            - - Lbl'-LT-'instrs'-GT-'{}
+              - default: fail
+                specializations:
+                - - kseq{}
+                  - default: fail
+                    specializations:
+                    - - inj{SortRegRegRegInstr{}, SortKItem{}}
+                      - default: null
+                        specializations:
+                        - - LblRegRegRegInstr{}
+                          - default: null
+                            specializations:
+                            - - inj{SortInt{}, SortRegister{}}
+                              - default: null
+                                specializations:
+                                - - inj{SortInt{}, SortRegister{}}
+                                  - default: null
+                                    specializations:
+                                    - - inj{SortInt{}, SortRegister{}}
+                                      - default: fail
+                                        specializations:
+                                        - - LblADD{}
+                                          - action:
+                                            - 522
+                                            - - - ['1', '0', '0', '0', '1']
+                                                - STRING.String
+                                              - - ['2', '0', '1']
+                                                - STRING.String
+                                              - - ['3', '0', '1']
+                                                - STRING.String
+                                              - - ['1', '1']
+                                                - STRING.String
+                                              - - ['2', '1']
+                                                - STRING.String
+                                              - - ['0', '1', '0', '0', '0', '0', '0',
+                                                  '1']
+                                                - INT.Int
+                                              - - ['0', '1', '0', '1']
+                                                - MAP.Map
+                                              - - ['0', '3', '0', '0', '0', '0', '0',
+                                                  '1']
+                                                - INT.Int
+                                              - - ['0', '2', '0', '0', '0', '0', '0',
+                                                  '1']
+                                                - INT.Int
+                                          - []
+                                        sort: STRING.String
+                                        occurrence: ['0', '0', '0', '0', '0', '0',
+                                          '1']
+                                      - [INT.Int]
+                                    sort: STRING.String
+                                    occurrence: ['1', '0', '0', '0', '0', '0', '1']
+                                  - [INT.Int]
+                                sort: STRING.String
+                                occurrence: ['2', '0', '0', '0', '0', '0', '1']
+                              - [INT.Int]
+                            sort: STRING.String
+                            occurrence: ['3', '0', '0', '0', '0', '0', '1']
+                          - [STRING.String, STRING.String, STRING.String, STRING.String]
+                        sort: STRING.String
+                        occurrence: ['0', '0', '0', '0', '0', '1']
+                      - [STRING.String]
+                    sort: STRING.String
+                    occurrence: ['0', '0', '0', '0', '1']
+                  - [STRING.String, STRING.String]
+                sort: STRING.String
+                occurrence: ['0', '0', '0', '1']
+              - [STRING.String]
+            sort: STRING.String
+            occurrence: ['0', '0', '1']
+          - [MAP.Map]
+        sort: STRING.String
+        occurrence: ['1', '0', '1']
+      - [STRING.String, STRING.String, STRING.String, STRING.String]
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String, STRING.String, STRING.String]
+sort: STRING.String
+occurrence: ['1']

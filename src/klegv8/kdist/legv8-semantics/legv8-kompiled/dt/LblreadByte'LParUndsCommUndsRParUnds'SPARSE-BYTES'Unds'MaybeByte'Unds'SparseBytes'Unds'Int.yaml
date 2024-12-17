@@ -1,0 +1,20 @@
+default: null
+specializations:
+- - inj{SortSparseBytesBF{}, SortSparseBytes{}}
+  - action:
+    - 811
+    - - - ['0', '1']
+        - STRING.String
+      - - &id001 ['2']
+        - INT.Int
+  - [STRING.String]
+- - inj{SortSparseBytesEF{}, SortSparseBytes{}}
+  - action:
+    - 812
+    - - - ['0', '1']
+        - STRING.String
+      - - *id001
+        - INT.Int
+  - [STRING.String]
+sort: STRING.String
+occurrence: ['1']

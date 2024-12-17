@@ -8,15 +8,15 @@ import pytest
 import yaml
 from elftools.elf.elffile import ELFFile  # type: ignore
 
-from kriscv import elf_parser
-from kriscv.build import semantics
+from klegv8 import elf_parser
+from klegv8.build import semantics
 
 from ..utils import TESTS_DIR
 
 if TYPE_CHECKING:
     from typing import Final
 
-    from kriscv.tools import Tools
+    from klegv8.tools import Tools
 
 SIMPLE_DIR: Final = TESTS_DIR / 'simple'
 SIMPLE_TESTS: Final = tuple(asm_file for asm_file in SIMPLE_DIR.rglob('*.S'))
@@ -133,7 +133,7 @@ def _test_simple(tools: Tools, elf_file: Path, assert_file: Path, final_config_o
 def test_simple(asm_file: Path, save_final_config: bool, temp_dir: Path) -> None:
     elf_file = Path(temp_dir) / (asm_file.stem + '.elf')
     compile_cmd = [
-        'riscv64-unknown-elf-gcc',
+        'legv864-unknown-elf-gcc',
         '-nostdlib',
         '-nostartfiles',
         '-static',

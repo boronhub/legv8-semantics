@@ -1,0 +1,28 @@
+args:
+- - &id001 ['2']
+  - INT.Int
+next:
+  default:
+    action:
+    - 843
+    - - - *id001
+        - INT.Int
+      - - &id003 ['1']
+        - MAP.Map
+      - - &id002 ['3']
+        - STRING.String
+  specializations:
+  - - '0'
+    - action:
+      - 844
+      - - - *id002
+          - STRING.String
+        - - *id003
+          - MAP.Map
+    - []
+  bitwidth: 32
+  sort: MINT.MInt 32
+  occurrence: &id004 [size, '2']
+function: hook_INT_size_int
+sort: MINT.MInt 32
+occurrence: *id004

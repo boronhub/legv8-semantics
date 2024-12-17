@@ -23,7 +23,7 @@ poetry-install:
 # Semantics
 
 kdist-build: poetry-install
-	$(POETRY) run kdist -v build riscv-semantics.llvm riscv-semantics.kllvm riscv-semantics.kllvm-runtime
+	$(POETRY) run kdist -v build legv8-semantics.llvm legv8-semantics.kllvm legv8-semantics.kllvm-runtime
 
 kdist-clean: poetry-install
 	$(POETRY) run kdist clean
@@ -47,8 +47,8 @@ test-integration: poetry-install
 RISCOF_DIRS = $(shell find src/tests/riscof -type d)
 RISCOF_FILES = $(shell find src/tests/riscof -type f)
 
-test-architectural: tests/riscv-arch-test $(RISCOF_DIRS) $(RISCOF_FILES)
-	$(POETRY_RUN) riscof run --suite tests/riscv-arch-test/riscv-test-suite --env tests/riscv-arch-test/riscv-test-suite/env --config src/tests/riscof/config.ini --work-dir tests/riscv-arch-test-compiled --no-browser
+test-architectural: tests/legv8-arch-test $(RISCOF_DIRS) $(RISCOF_FILES)
+	$(POETRY_RUN) riscof run --suite tests/legv8-arch-test/legv8-test-suite --env tests/legv8-arch-test/legv8-test-suite/env --config src/tests/riscof/config.ini --work-dir tests/legv8-arch-test-compiled --no-browser
 
 # Coverage
 
@@ -56,7 +56,7 @@ COV_ARGS :=
 
 cov: cov-all
 
-cov-%: TEST_ARGS += --cov=kriscv --no-cov-on-fail --cov-branch --cov-report=term
+cov-%: TEST_ARGS += --cov=klegv8 --no-cov-on-fail --cov-branch --cov-report=term
 
 cov-all: TEST_ARGS += --cov-report=html:cov-all-html $(COV_ARGS)
 cov-all: test-all

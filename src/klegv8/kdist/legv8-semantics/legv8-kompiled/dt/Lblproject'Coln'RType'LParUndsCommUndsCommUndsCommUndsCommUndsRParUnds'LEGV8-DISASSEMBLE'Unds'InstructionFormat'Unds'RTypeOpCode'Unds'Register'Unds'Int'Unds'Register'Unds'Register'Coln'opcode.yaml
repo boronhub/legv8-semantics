@@ -1,0 +1,18 @@
+default: fail
+specializations:
+- - LblRType'LParUndsCommUndsCommUndsCommUndsCommUndsRParUnds'LEGV8-DISASSEMBLE'Unds'InstructionFormat'Unds'RTypeOpCode'Unds'Register'Unds'Int'Unds'Register'Unds'Register{}
+  - action:
+    - 789
+    - - - ['0', '1']
+        - STRING.String
+      - - ['1', '1']
+        - STRING.String
+      - - ['2', '1']
+        - INT.Int
+      - - ['3', '1']
+        - STRING.String
+      - - ['4', '1']
+        - STRING.String
+  - [STRING.String, STRING.String, INT.Int, STRING.String, STRING.String]
+sort: STRING.String
+occurrence: ['1']

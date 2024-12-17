@@ -1,0 +1,34 @@
+default: null
+specializations:
+- - inj{SortSparseBytesBF{}, SortSparseBytes{}}
+  - default: null
+    specializations:
+    - - LblSparseBytes'Coln'BytesCons{}
+      - default: null
+        specializations:
+        - - LblSparseBytes'ColnHash'bytes{}
+          - action:
+            - 748
+            - - - &id001 ['1']
+                - BYTES.Bytes
+              - - ['0', '0', '0', '2']
+                - BYTES.Bytes
+              - - ['1', '0', '2']
+                - STRING.String
+          - [BYTES.Bytes]
+        sort: STRING.String
+        occurrence: ['0', '0', '2']
+      - [STRING.String, STRING.String]
+    sort: STRING.String
+    occurrence: ['0', '2']
+  - [STRING.String]
+- - inj{SortSparseBytesEF{}, SortSparseBytes{}}
+  - action:
+    - 749
+    - - - *id001
+        - BYTES.Bytes
+      - - ['0', '2']
+        - STRING.String
+  - [STRING.String]
+sort: STRING.String
+occurrence: ['2']

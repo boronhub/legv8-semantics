@@ -1,0 +1,225 @@
+args:
+- - &id001 ['1']
+  - INT.Int
+next:
+  default: null
+  specializations:
+  - - '1'
+    - action:
+      - 595
+      - - - *id001
+          - INT.Int
+    - []
+  - - '0'
+    - args:
+      - - *id001
+        - INT.Int
+      next:
+        default: null
+        specializations:
+        - - '1'
+          - action:
+            - 596
+            - - - *id001
+                - INT.Int
+          - []
+        - - '0'
+          - args:
+            - - *id001
+              - INT.Int
+            next:
+              default: null
+              specializations:
+              - - '1'
+                - action:
+                  - 597
+                  - - - *id001
+                      - INT.Int
+                - []
+              - - '0'
+                - args:
+                  - - *id001
+                    - INT.Int
+                  next:
+                    default: null
+                    specializations:
+                    - - '1'
+                      - action:
+                        - 598
+                        - - - *id001
+                            - INT.Int
+                      - []
+                    - - '0'
+                      - args:
+                        - - *id001
+                          - INT.Int
+                        next:
+                          default: null
+                          specializations:
+                          - - '1'
+                            - action:
+                              - 599
+                              - - - *id001
+                                  - INT.Int
+                            - []
+                          - - '0'
+                            - args:
+                              - - *id001
+                                - INT.Int
+                              next:
+                                default: null
+                                specializations:
+                                - - '1'
+                                  - action:
+                                    - 600
+                                    - - - *id001
+                                        - INT.Int
+                                  - []
+                                - - '0'
+                                  - args:
+                                    - - *id001
+                                      - INT.Int
+                                    next:
+                                      default: null
+                                      specializations:
+                                      - - '1'
+                                        - action:
+                                          - 601
+                                          - - - *id001
+                                              - INT.Int
+                                        - []
+                                      - - '0'
+                                        - args:
+                                          - - *id001
+                                            - INT.Int
+                                          next:
+                                            default: null
+                                            specializations:
+                                            - - '1'
+                                              - action:
+                                                - 602
+                                                - - - *id001
+                                                    - INT.Int
+                                              - []
+                                            - - '0'
+                                              - args:
+                                                - - *id001
+                                                  - INT.Int
+                                                next:
+                                                  default: null
+                                                  specializations:
+                                                  - - '1'
+                                                    - action:
+                                                      - 603
+                                                      - - - *id001
+                                                          - INT.Int
+                                                    - []
+                                                  - - '0'
+                                                    - args:
+                                                      - - *id001
+                                                        - INT.Int
+                                                      next:
+                                                        default: null
+                                                        specializations:
+                                                        - - '1'
+                                                          - action:
+                                                            - 604
+                                                            - - - *id001
+                                                                - INT.Int
+                                                          - []
+                                                        - - '0'
+                                                          - args:
+                                                            - - *id001
+                                                              - INT.Int
+                                                            next:
+                                                              default: null
+                                                              specializations:
+                                                              - - '1'
+                                                                - action:
+                                                                  - 605
+                                                                  - - - *id001
+                                                                      - INT.Int
+                                                                - []
+                                                              - - '0'
+                                                                - action:
+                                                                  - 606
+                                                                  - - - *id001
+                                                                      - INT.Int
+                                                                - []
+                                                              bitwidth: 1
+                                                              sort: BOOL.Bool
+                                                              occurrence: &id002 [
+                                                                side_condition_605]
+                                                            function: side_condition_605
+                                                            sort: BOOL.Bool
+                                                            occurrence: *id002
+                                                          - []
+                                                        bitwidth: 1
+                                                        sort: BOOL.Bool
+                                                        occurrence: &id003 [side_condition_604]
+                                                      function: side_condition_604
+                                                      sort: BOOL.Bool
+                                                      occurrence: *id003
+                                                    - []
+                                                  bitwidth: 1
+                                                  sort: BOOL.Bool
+                                                  occurrence: &id004 [side_condition_603]
+                                                function: side_condition_603
+                                                sort: BOOL.Bool
+                                                occurrence: *id004
+                                              - []
+                                            bitwidth: 1
+                                            sort: BOOL.Bool
+                                            occurrence: &id005 [side_condition_602]
+                                          function: side_condition_602
+                                          sort: BOOL.Bool
+                                          occurrence: *id005
+                                        - []
+                                      bitwidth: 1
+                                      sort: BOOL.Bool
+                                      occurrence: &id006 [side_condition_601]
+                                    function: side_condition_601
+                                    sort: BOOL.Bool
+                                    occurrence: *id006
+                                  - []
+                                bitwidth: 1
+                                sort: BOOL.Bool
+                                occurrence: &id007 [side_condition_600]
+                              function: side_condition_600
+                              sort: BOOL.Bool
+                              occurrence: *id007
+                            - []
+                          bitwidth: 1
+                          sort: BOOL.Bool
+                          occurrence: &id008 [side_condition_599]
+                        function: side_condition_599
+                        sort: BOOL.Bool
+                        occurrence: *id008
+                      - []
+                    bitwidth: 1
+                    sort: BOOL.Bool
+                    occurrence: &id009 [side_condition_598]
+                  function: side_condition_598
+                  sort: BOOL.Bool
+                  occurrence: *id009
+                - []
+              bitwidth: 1
+              sort: BOOL.Bool
+              occurrence: &id010 [side_condition_597]
+            function: side_condition_597
+            sort: BOOL.Bool
+            occurrence: *id010
+          - []
+        bitwidth: 1
+        sort: BOOL.Bool
+        occurrence: &id011 [side_condition_596]
+      function: side_condition_596
+      sort: BOOL.Bool
+      occurrence: *id011
+    - []
+  bitwidth: 1
+  sort: BOOL.Bool
+  occurrence: &id012 [side_condition_595]
+function: side_condition_595
+sort: BOOL.Bool
+occurrence: *id012

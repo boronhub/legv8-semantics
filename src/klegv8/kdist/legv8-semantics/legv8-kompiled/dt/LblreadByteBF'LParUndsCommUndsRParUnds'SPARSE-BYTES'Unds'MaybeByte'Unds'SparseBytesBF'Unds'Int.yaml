@@ -1,0 +1,89 @@
+default: null
+specializations:
+- - LblSparseBytes'Coln'BytesCons{}
+  - default: null
+    specializations:
+    - - LblSparseBytes'ColnHash'bytes{}
+      - args:
+        - - &id001 ['0', '0', '1']
+          - BYTES.Bytes
+        - - &id002 ['2']
+          - INT.Int
+        next:
+          default: null
+          specializations:
+          - - '1'
+            - action:
+              - 813
+              - - - *id001
+                  - BYTES.Bytes
+                - - &id003 ['1', '1']
+                  - STRING.String
+                - - *id002
+                  - INT.Int
+            - []
+          - - '0'
+            - args:
+              - - *id001
+                - BYTES.Bytes
+              - - *id002
+                - INT.Int
+              next:
+                default: null
+                specializations:
+                - - '1'
+                  - action:
+                    - 814
+                    - - - *id003
+                        - STRING.String
+                      - - *id001
+                        - BYTES.Bytes
+                      - - *id002
+                        - INT.Int
+                  - []
+                - - '0'
+                  - args:
+                    - - *id002
+                      - INT.Int
+                    next:
+                      default: null
+                      specializations:
+                      - - '1'
+                        - action:
+                          - 815
+                          - - - *id001
+                              - BYTES.Bytes
+                            - - *id003
+                              - STRING.String
+                            - - *id002
+                              - INT.Int
+                        - []
+                      - - '0'
+                        - fail
+                        - []
+                      bitwidth: 1
+                      sort: BOOL.Bool
+                      occurrence: &id004 [side_condition_815]
+                    function: side_condition_815
+                    sort: BOOL.Bool
+                    occurrence: *id004
+                  - []
+                bitwidth: 1
+                sort: BOOL.Bool
+                occurrence: &id005 [side_condition_814]
+              function: side_condition_814
+              sort: BOOL.Bool
+              occurrence: *id005
+            - []
+          bitwidth: 1
+          sort: BOOL.Bool
+          occurrence: &id006 [side_condition_813]
+        function: side_condition_813
+        sort: BOOL.Bool
+        occurrence: *id006
+      - [BYTES.Bytes]
+    sort: STRING.String
+    occurrence: ['0', '1']
+  - [STRING.String, STRING.String]
+sort: STRING.String
+occurrence: ['1']

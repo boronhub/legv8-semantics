@@ -1,0 +1,20 @@
+default: null
+specializations:
+- - inj{SortRTypeOpCode{}, SortOpCode{}}
+  - action:
+    - 607
+    - - - &id001 ['2']
+        - INT.Int
+      - - ['0', '1']
+        - STRING.String
+  - [STRING.String]
+- - inj{SortUnrecognizedOpCode{}, SortOpCode{}}
+  - action:
+    - 608
+    - - - ['0', '1']
+        - STRING.String
+      - - *id001
+        - INT.Int
+  - [STRING.String]
+sort: STRING.String
+occurrence: ['1']

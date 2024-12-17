@@ -1,0 +1,172 @@
+default: &id001
+  action:
+  - 610
+  - - - &id009 ['1']
+      - STRING.String
+specializations:
+- - LblRType'LParUndsCommUndsCommUndsCommUndsCommUndsRParUnds'LEGV8-DISASSEMBLE'Unds'InstructionFormat'Unds'RTypeOpCode'Unds'Register'Unds'Int'Unds'Register'Unds'Register{}
+  - args:
+    - - &id005 ['2', '1']
+      - INT.Int
+    next:
+      default: *id001
+      specializations:
+      - - '0'
+        - default: *id001
+          specializations:
+          - - LblADDS'Unds'LEGV8-DISASSEMBLE'Unds'RTypeOpCode{}
+            - action:
+              - 611
+              - - - &id002 ['4', '1']
+                  - STRING.String
+                - - &id003 ['1', '1']
+                  - STRING.String
+                - - &id004 ['3', '1']
+                  - STRING.String
+            - []
+          - - LblADD'Unds'LEGV8-DISASSEMBLE'Unds'RTypeOpCode{}
+            - action:
+              - 612
+              - - - *id002
+                  - STRING.String
+                - - *id003
+                  - STRING.String
+                - - *id004
+                  - STRING.String
+            - []
+          - - LblAND'Unds'LEGV8-DISASSEMBLE'Unds'RTypeOpCode{}
+            - action:
+              - 613
+              - - - *id002
+                  - STRING.String
+                - - *id003
+                  - STRING.String
+                - - *id004
+                  - STRING.String
+            - []
+          - - LblEOR'Unds'LEGV8-DISASSEMBLE'Unds'RTypeOpCode{}
+            - action:
+              - 614
+              - - - *id002
+                  - STRING.String
+                - - *id003
+                  - STRING.String
+                - - *id004
+                  - STRING.String
+            - []
+          - - LblLSL'Unds'LEGV8-DISASSEMBLE'Unds'RTypeOpCode{}
+            - action:
+              - 615
+              - - - *id002
+                  - STRING.String
+                - - *id003
+                  - STRING.String
+                - - *id004
+                  - STRING.String
+            - []
+          - - LblLSR'Unds'LEGV8-DISASSEMBLE'Unds'RTypeOpCode{}
+            - action:
+              - 616
+              - - - *id002
+                  - STRING.String
+                - - *id003
+                  - STRING.String
+                - - *id004
+                  - STRING.String
+            - []
+          - - LblORR'Unds'LEGV8-DISASSEMBLE'Unds'RTypeOpCode{}
+            - action:
+              - 618
+              - - - *id002
+                  - STRING.String
+                - - *id003
+                  - STRING.String
+                - - *id004
+                  - STRING.String
+            - []
+          - - LblSUB'Unds'LEGV8-DISASSEMBLE'Unds'RTypeOpCode{}
+            - action:
+              - 620
+              - - - *id002
+                  - STRING.String
+                - - *id003
+                  - STRING.String
+                - - *id004
+                  - STRING.String
+            - []
+          sort: STRING.String
+          occurrence: &id006 ['0', '1']
+        - []
+      - - '1'
+        - args:
+          - - *id005
+            - INT.Int
+          - - [lit, '0', MINT.MInt 64]
+            - MINT.MInt 64
+          next:
+            default: *id001
+            specializations:
+            - - '31'
+              - default: *id001
+                specializations:
+                - - LblMUL'Unds'LEGV8-DISASSEMBLE'Unds'RTypeOpCode{}
+                  - action:
+                    - 617
+                    - - - *id002
+                        - STRING.String
+                      - - *id003
+                        - STRING.String
+                      - - *id004
+                        - STRING.String
+                  - []
+                sort: STRING.String
+                occurrence: *id006
+              - []
+            - - '2'
+              - default: *id001
+                specializations:
+                - - LblSDIV'Unds'LEGV8-DISASSEMBLE'Unds'RTypeOpCode{}
+                  - action:
+                    - 619
+                    - - - *id002
+                        - STRING.String
+                      - - *id003
+                        - STRING.String
+                      - - *id004
+                        - STRING.String
+                  - []
+                sort: STRING.String
+                occurrence: *id006
+              - []
+            - - '3'
+              - default: *id001
+                specializations:
+                - - LblUDIV'Unds'LEGV8-DISASSEMBLE'Unds'RTypeOpCode{}
+                  - action:
+                    - 621
+                    - - - *id002
+                        - STRING.String
+                      - - *id003
+                        - STRING.String
+                      - - *id004
+                        - STRING.String
+                  - []
+                sort: STRING.String
+                occurrence: *id006
+              - []
+            bitwidth: 64
+            sort: MINT.MInt 64
+            occurrence: &id007 ['0', '2', '1']
+          function: hook_INT_limb
+          sort: MINT.MInt 64
+          occurrence: *id007
+        - []
+      bitwidth: 32
+      sort: MINT.MInt 32
+      occurrence: &id008 [size, '2', '1']
+    function: hook_INT_size_int
+    sort: MINT.MInt 32
+    occurrence: *id008
+  - [STRING.String, STRING.String, INT.Int, STRING.String, STRING.String]
+sort: STRING.String
+occurrence: *id009
